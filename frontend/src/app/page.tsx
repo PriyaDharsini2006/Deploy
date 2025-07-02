@@ -36,7 +36,6 @@ export default function Home() {
       const response = await axios.post(`http://localhost:9000/project`, {
         gitUrl: repoURL,
       });
-
       if (response.data?.data) {
         const { projSlug, url } = response.data.data;
         setProjectId(projSlug);
