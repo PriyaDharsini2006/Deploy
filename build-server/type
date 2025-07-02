@@ -10,3 +10,18 @@ REDIS_URL=rediss://default:YOUR_PASSWORD@your-redis-hostname.aivencloud.com:PORT
 
 
 FRONTEND_ORIGIN=http://localhost:3000
+
+# Project & Deployment Context
+PROJECT_ID=your_project_id
+DEPLOYMENT_ID=your_deployment_id
+GIT_URL=your_git_repo_url
+
+
+# Kafka Credentials
+KAFKA_BROKER=''
+KAFKA_USERNAME=''
+KAFKA_PASSWORD=''
+
+# S3 Bucket
+S3_BUCKET=''
+

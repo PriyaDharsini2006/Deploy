@@ -1,0 +1,45 @@
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum DeploymentStatus {
+  NOT_STARTED
+  QUEUED
+  IN_PROGRESS
+  READY
+  FAIL
+}
+
+model Project {
+  id           String       @id @default(uuid())
+  name         String
+  gitURL       String       @map("git_url")
+  subDomain    String       @unique @map("subdomain")
+  customDomain String?      @unique @map("custom_domain")
+  deployments  Deployment[] @relation("ProjectDeployments")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model Deployment {
+  id        String           @id @default(uuid())
+  project   Project          @relation("ProjectDeployments", fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String           @map("project_id")
+  status    DeploymentStatus @default(NOT_STARTED)
+  createdAt DateTime         @default(now()) @map("created_at")
+  updatedAt DateTime         @updatedAt @map("updated_at")
+
+  @@map("deployments")
+  @@index([projectId])
+  @@index([status])
+}

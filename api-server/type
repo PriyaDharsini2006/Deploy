@@ -1,17 +1,40 @@
+# API Server Port
+PORT=9000
+PROXY_PORT=8000
 
-AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY
-AWS_REGION=ap-south-1
+# AWS Credentials
+AWS_ACCESS_KEY_ID=your_aws_access_key_id
+AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+AWS_REGION=your_aws_region
 
-ECS_CLUSTER_ARN=arn:aws:ecs:ap-south-1:YOUR_AWS_ACCOUNT_ID:cluster/YOUR_CLUSTER_NAME
-ECS_TASK_ARN=arn:aws:ecs:ap-south-1:YOUR_AWS_ACCOUNT_ID:task-definition/YOUR_TASK_NAME:VERSION
+# ECS Configuration
+ECS_CLUSTER_ARN=your_ecs_cluster_arn
+ECS_TASK_ARN=your_ecs_task_definition_arn
+SUBNET_1=your_subnet_1_id
+SUBNET_2=your_subnet_2_id
+SUBNET_3=your_subnet_3_id
+SECURITY_GROUP=your_security_group_id
 
+# Kafka Broker (Aiven or other)
+KAFKA_BROKER=your_kafka_broker_url:port
+KAFKA_USERNAME=your_kafka_username
+KAFKA_PASSWORD=your_kafka_password
 
-REDIS_URL=rediss://default:YOUR_PASSWORD@YOUR_REDIS_HOST:PORT
+# ClickHouse DB
+CLICKHOUSE_URL=your_clickhouse_url
+CLICKHOUSE_DB=default
+CLICKHOUSE_USER=default
+CLICKHOUSE_PASS=your_clickhouse_password
 
-SUBNET_1=subnet-xxxxxxxxxxxxxxxxx
-SUBNET_2=subnet-xxxxxxxxxxxxxxxxx
-SUBNET_3=subnet-xxxxxxxxxxxxxxxxx
-SECURITY_GROUP=sg-xxxxxxxxxxxxxxxxx
+# Prisma (PostgreSQL)
+DATABASE_URL=your_postgresql_connection_url
 
+# Redis (Optional if used)
+REDIS_URL=your_redis_connection_url
+
+# Frontend Origin for CORS
 FRONTEND_ORIGIN=http://localhost:3000
+
+# Optional Reverse Proxy
+BASE_PATH=http://localhost:9000
+
